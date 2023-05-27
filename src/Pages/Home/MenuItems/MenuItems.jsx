@@ -21,10 +21,13 @@ const MenuItems = () => {
                 subHeading={"Check it out"}
                 heading={"From Our Menu"}
             ></SectionTitle>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div>
+                <div className="grid md:grid-cols-2 gap-6">
                 {
                   menu.map(item => <PopularMenu key={item._id} item={item}></PopularMenu>)  
                 }
+                </div>
+                <button className="btn btn-outline mx-auto border-0 border-b-2 flex justify-center mt-5">View Full Menu</button>
             </div>
         </section>
     );
