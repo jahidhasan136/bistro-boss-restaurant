@@ -1,8 +1,15 @@
 import img from '../../../assets/home/slide1.jpg';
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const Recommends = () => {
     return (
-        <div className='my-24 grid md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center container mx-auto'>
+        <section className='my-24 '>
+            <SectionTitle
+                subHeading={"Should Try"}
+                heading={"Chef Recommends"}
+            >
+            </SectionTitle>
+            <div className='mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center container mx-auto'>
             <div className="card w-96 rounded-none bg-base-100 shadow-xl">
                 <figure><img src={img} className='w-full h-72' alt="Shoes" /></figure>
                 <div className="card-body text-center bg-stone-100">
@@ -34,6 +41,7 @@ const Recommends = () => {
                 </div>
             </div>
         </div>
+        </section>
     );
 };
 
