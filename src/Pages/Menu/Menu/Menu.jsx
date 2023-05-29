@@ -27,27 +27,23 @@ const Menu = () => {
                 <SectionMenu items={popularItems}></SectionMenu>
             </div>
             <div className="my-20">
-                <Cover img={dessertImage} title="DESSERTS" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti."></Cover>
                 <div className="mt-10">
-                <SectionMenu items={desserts}></SectionMenu>
+                    <SectionMenu title="DESSERTS" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti." img={dessertImage} items={desserts}></SectionMenu>
                 </div>
             </div>
             <div className="my-20">
-                <Cover img={pizzaImage} title="Pizza" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti."></Cover>
                 <div className="mt-10">
-                <SectionMenu items={pizza}></SectionMenu>
+                    <SectionMenu img={pizzaImage} title="Pizza" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti." items={pizza}></SectionMenu>
                 </div>
             </div>
             <div className="my-20">
-                <Cover img={saladImage} title="Salad" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti."></Cover>
                 <div className="mt-10">
-                <SectionMenu items={salads}></SectionMenu>
+                    <SectionMenu img={saladImage} title="Salad" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti." items={salads}></SectionMenu>
                 </div>
             </div>
             <div className="my-20">
-                <Cover img={soupImage} title="Soup" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti."></Cover>
                 <div className="mt-10">
-                <SectionMenu items={soups}></SectionMenu>
+                    <SectionMenu img={soupImage} title="Soup" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti." items={soups}></SectionMenu>
                 </div>
             </div>
         </div>

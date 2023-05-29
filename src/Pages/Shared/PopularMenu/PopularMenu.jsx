@@ -1,7 +1,6 @@
 import img1 from '../../../assets/menu/dessert-bg.jpeg';
 
 const PopularMenu = ({ item }) => {
-    console.log(item)
     const { name, recipe, price } = item
     return (
         <div className="flex mt-10">
