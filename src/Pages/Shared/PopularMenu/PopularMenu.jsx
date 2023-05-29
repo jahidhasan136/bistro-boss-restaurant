@@ -1,11 +1,11 @@
 import img1 from '../../../assets/menu/dessert-bg.jpeg';
 
-const PopularMenu = ({item}) => {
+const PopularMenu = ({ item }) => {
     console.log(item)
-    const {image, name, recipe, price} = item
+    const { name, recipe, price } = item
     return (
         <div className="flex mt-10">
-            <img className='w-20 mr-5' style={{borderRadius: '0px 300px 300px 300px'}} src={img1} alt="" />
+            <img className='w-20 mr-5' style={{ borderRadius: '0px 300px 300px 300px' }} src={img1} alt="" />
             <div>
                 <h3 className='text-xl'>{name} -------------------</h3>
                 <p className='text-gray-400'>{recipe}</p>

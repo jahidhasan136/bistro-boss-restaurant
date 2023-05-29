@@ -1,9 +1,14 @@
-
+import Cover from "../../Shared/Cover/Cover";
+import banner from '../../../assets/menu/banner3.jpg'
 
 const Menu = () => {
     return (
         <div>
-            <h2>our menu</h2>            
+            <Cover
+                img={banner}
+                title="Our Menu"
+                description="Would you like to try a dish?"
+            ></Cover>            
         </div>
     );
 };
