@@ -22,7 +22,7 @@ const Order = () => {
                 title="Our Shop"
                 description="Would You Like To Try A Dish?"
             ></Cover>
-            <Tabs className="text-center" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+            <Tabs className="text-center my-20" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
                     <Tab>SALAD</Tab>
                     <Tab>PIZZA</Tab>
