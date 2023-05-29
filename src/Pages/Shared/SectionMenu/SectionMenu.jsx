@@ -9,7 +9,7 @@ const SectionMenu = ({items}) => {
                   items.map(item => <PopularMenu key={item._id} item={item}></PopularMenu>)  
                 }
                 </div>
-                <button className="btn btn-outline mx-auto border-0 border-b-2 flex justify-center mt-5">View Full Menu</button>
+                <button className="btn btn-outline mx-auto border-0 border-b-2 flex justify-center mt-5 uppercase">Order your favourite Food</button>
             </div>
     );
 };
