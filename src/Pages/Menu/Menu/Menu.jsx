@@ -28,7 +28,7 @@ const Menu = () => {
             </div>
             <div className="my-20">
                 <div className="mt-10">
-                    <SectionMenu title="DESSERTS" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti." img={dessertImage} items={desserts}></SectionMenu>
+                    <SectionMenu title="Dessert" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, deleniti." img={dessertImage} items={desserts}></SectionMenu>
                 </div>
             </div>
             <div className="my-20">
