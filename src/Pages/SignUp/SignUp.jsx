@@ -1,10 +1,18 @@
-// import { useContext } from 'react';
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import signUp from '../../assets/others/authentication2.png'
-// import { AuthContext } from '../../Providers/AuthProvider';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
-    // const {createUser} = useContext(AuthContext)
-
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    
+    const {createUser} = useContext(AuthContext)
+    
+    const onSubmit = data => {
+        console.log(data)
+    };
+    
     // const handleSignUp = event => {
     //     event.preventDefault()
     //     const form = event.target
@@ -37,28 +45,33 @@ const SignUp = () => {
                 </div>
                 <div className="card w-full lg:w-1/2 max-w-sm">
                     <h1 className="text-5xl font-bold text-center">Sign Up </h1>
-                    <form className="card-body">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="name" name='name' className="input input-bordered rounded-sm" />
+                            <input type="text" placeholder="name" {...register("name", { required: true })} className="input input-bordered rounded-sm" />
+                            {errors.name && <span>name required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" name='email' className="input input-bordered rounded-sm" />
+                            <input type="email" placeholder="email" {...register("email", {required: true})} className="input input-bordered rounded-sm" />
+                            {errors.email && <span>email required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered rounded-sm" />
+                            <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered rounded-sm" />
+                            {errors.password?.type === 'minLength' && <p>Password must be 6 character</p>}
+                            {errors.password?.type === 'maxLength' && <p>Password must be less then 20 character</p>}
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn border-none bg-yellow-500 rounded-sm" type="submit" value="Login" />
                         </div>
+                        <p><small>Already registered? <Link to="/login">Go to login</Link></small></p>
                     </form>
                 </div>
             </div>
