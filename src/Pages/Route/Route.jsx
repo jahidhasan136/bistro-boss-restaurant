@@ -7,6 +7,7 @@ import Menu from "../Menu/Menu/Menu";
 import Order from "../Order/Order/Order";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -25,7 +26,7 @@ import SignUp from "../SignUp/SignUp";
         },
         {
           path: '/order/:category',
-          element: <Order></Order>
+          element: <PrivateRoute><Order></Order></PrivateRoute>
         },
         {
           path: '/login',
