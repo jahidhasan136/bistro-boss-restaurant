@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import signUp from '../../assets/others/authentication2.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updatUser} = useContext(AuthContext)
+    const navigate = useNavigate()
     
     const onSubmit = data => {
         console.log(data)
@@ -15,36 +17,24 @@ const SignUp = () => {
         .then(result => {
             const loggedUser = result.user
             console.log(loggedUser)
+            updatUser(data.name, data.photoURL)
+            .then(()=>{
+                console.log('user profile info updated')
+                reset()
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Sign up Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate('/')
+            })
         })
         .catch(error=>{
             console.error(error.message)
         })
     };
-    
-    // const handleSignUp = event => {
-    //     event.preventDefault()
-    //     const form = event.target
-    //     const name = form.name.value
-    //     const email = form.email.value
-    //     const password = form.password.value
-    //     const loginInfo = {
-    //         name,
-    //         email,
-    //         password
-    //     }
-    //     console.log(loginInfo)
-
-    //     createUser(email, password)
-    //     .then(result => {
-    //         const user = result.user
-    //         console.log(user)
-    //     })
-    //     .catch(error => {
-    //         console.error(error.message)
-    //     })
-
-    // }
-
     return (
         <div className="hero min-h-screen bg-base-200 py-20">
             <div className="hero-content flex-col lg:flex-row">
@@ -60,6 +50,13 @@ const SignUp = () => {
                             </label>
                             <input type="text" placeholder="name" {...register("name", { required: true })} className="input input-bordered rounded-sm" />
                             {errors.name && <span>name required</span>}
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">PhotoURL</span>
+                            </label>
+                            <input type="text" placeholder="photoURL" {...register("photoURL", { required: true })} className="input input-bordered rounded-sm" />
+                            {errors.photoURL && <span>photoURL required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">

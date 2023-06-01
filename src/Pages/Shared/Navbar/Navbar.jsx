@@ -4,24 +4,24 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 const Navbar = () => {
-    const {user, logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const handleLogout = () => {
         logOut()
-        .then(()=> {})
-        .catch(error => console.error(error))
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
     const navOptons = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Our Menu</Link></li>
         <li><Link to="/order/salad">Order Food</Link></li>
-        
+
         {
-            user? 
-            <><button onClick={handleLogout} className="btn btn-warning">Log out</button></> 
-            : 
-            <><li><Link to='/login'>Login</Link></li></>
+            user ?
+                <><button onClick={handleLogout} className="btn btn-warning">Log out</button></>
+                :
+                <><li><Link to='/login'>Login</Link></li></>
         }
 
     </>
@@ -38,7 +38,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-lg uppercase font-bold font-serif">Bistro Boss <br />
-                    Restaurant
+                        Restaurant
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -47,7 +47,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
+                        <label tabIndex={0} className="btn m-1">Profile</label>
+                        {
+                            user && <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
+                            <li>{user?.displayName}</li>
+                        </ul>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
