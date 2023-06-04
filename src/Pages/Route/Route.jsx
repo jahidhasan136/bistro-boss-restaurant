@@ -7,6 +7,8 @@ import Menu from "../Menu/Menu/Menu";
 import Order from "../Order/Order/Order";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
+import Dashboard from "../../Layout/Dashboard";
+import MyCart from "../Dashboard/MyCart/MyCart";
 
 
 
@@ -37,6 +39,16 @@ import SignUp from "../SignUp/SignUp";
         }
       ]
     },
+    {
+      path: '/dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'mycart',
+          element: <MyCart></MyCart>
+        }
+      ]
+    }
   ]);  
 
 
